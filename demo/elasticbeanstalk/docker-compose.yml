@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  backend:
+    imgae: "vivienfay/housinghouse-rental-marketplace:latest"
+    ports:
+      - "80:8080"
+    restart: "always"
+
+
