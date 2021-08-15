@@ -21,19 +21,19 @@ function PropertyDrawerForm({showDrawer, setShowDrawer, fetchProperties}) {
                 console.log("Property added")
                 onCLose();
                 successNotification("Property successfully Added"
-                `${property.name} was successfully added`)
+                `${property.address} was successfully added`)
                 fetchProperties();
             }).catch(err => {
-                console.log(err.response)
+                console.log(err);
                 err.response.json().then(res => {
                     console.log(res);
                     errorNotification(
                         "There was an issue",
-                        `${res.message} [statusCode:${res.status}] [${res.error}]`,
+                        `${res.message}[${res.status}] [${res.error}]`,
                         "bottomLeft"
                     )
                 });
-        }).finally(()=>{
+            }).finally(()=>{
             setSubmitting(false);
         })
     };
