@@ -2,13 +2,12 @@ package com.example.demo.property;
 
 import com.example.demo.property.exception.BadRequestException;
 import com.example.demo.property.exception.PropertyNotFoundException;
-import com.example.demo.student.Student;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
-
 
 @AllArgsConstructor
 @Service
@@ -19,7 +18,7 @@ public class PropertyService {
         return propertyRepository.findAll();
     }
 
-    public void addProperty(@RequestBody Property property){
+    public void addProperty(Property property){
 //        check if address is taken
         Boolean existsAddress = propertyRepository
                 .selectExistsAddress(property.getAddress());

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 public interface PropertyRepository
         extends JpaRepository<Property, Long> {
     @Query("" +
-        "SELECT CASE WHEN COUNT(s) > 0 THEN " +
-        "TRUE ELSE FALSE END" +
-        "FROM property p" +
-        "WHERE p.email = ?1"
+            "SELECT CASE WHEN COUNT(p) > 0 THEN " +
+            "TRUE ELSE FALSE END " +
+            "FROM Property p " +
+            "WHERE p.address = ?1"
     )
     Boolean selectExistsAddress(String address);
 }

@@ -17,11 +17,12 @@ public class PropertyController {
         return propertyService.getAllProperties();
     }
 
-    @RequestMapping
+    @PostMapping
     public void addProperty(@Valid @RequestBody Property property) {propertyService.addProperty(property);}
 
     @DeleteMapping(path="{propertyId}")
-    public void deleteProperty(@PathVariable("propertyId") Long propertyId){
+    public void deleteProperty(
+            @PathVariable("propertyId") Long propertyId){
         propertyService.deleteProperty(propertyId);
     }
 }
